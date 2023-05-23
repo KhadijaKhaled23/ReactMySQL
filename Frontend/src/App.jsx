@@ -1,32 +1,29 @@
 import React, { useEffect, useState} from 'react'
+import Card from 'react-bootstrap/Card';
 
 import './stylesheet.css'
 
 function App(){
   const [data, setData] = useState([])
+  
   useEffect(()=>{
-    fetch('http://localhost:8081/flights')
-    .then(res => res.json())
-    .then(data => setData(data))
-    .catch(err => console.log(err));
-
+    async function fetchData() {
+      const response = await fetch('http://localhost:8081/flights');
+      const data = await response.json();
+      setData(data);
+    }
+    fetchData();
   }, [])
   return (
-    <div class='box'>
-      <table>
-        <tbody>
-          {data.map((d, i)=>(
-            <tr key={i}>
-              <td>{d.flightID}</td>
-              <td>{d.seats_available}</td>
-              <td>{d.destination}</td>
-              <td>{d.ISO_to}</td>
-              <td>{d.ISO_from}</td>
-            </tr>
-            ))}
-        </tbody>
-      </table>
-    </div>
+    <div>
+      {data.map(item => (
+        <Card key={item.flightID} style={{ width: '18rem' }}>
+          <Card.Body className='styleCardContent'>
+            <Card.Text >{item.flightID} {item.seats_available} {item.destination}</Card.Text>
+          </Card.Body>
+        </Card>
+      ))}
+  </div>
   )
 }
 
