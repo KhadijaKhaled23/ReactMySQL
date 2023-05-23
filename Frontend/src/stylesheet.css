@@ -1,0 +1,17 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+}
+
+
+tr{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    background-color: #1230b6;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 50px -20px rgb(0 0 0);
+}
