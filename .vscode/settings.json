@@ -9,7 +9,7 @@
             "port": 3306,
             "driver": "MySQL",
             "name": "SQLconnection",
-            "database": "school",
+            "database": "ar",
             "username": "sqluser",
             "password": "password"
         }

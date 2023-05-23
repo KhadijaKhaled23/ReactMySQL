@@ -5,7 +5,7 @@ import './stylesheet.css'
 function App(){
   const [data, setData] = useState([])
   useEffect(()=>{
-    fetch('http://localhost:8081/courses/')
+    fetch('http://localhost:8081/flights')
     .then(res => res.json())
     .then(data => setData(data))
     .catch(err => console.log(err));
@@ -17,9 +17,11 @@ function App(){
         <tbody>
           {data.map((d, i)=>(
             <tr key={i}>
-              <td>{d.id}</td>
-              <td>{d.name}</td>
-              <td>{d.description}</td>
+              <td>{d.flightID}</td>
+              <td>{d.seats_available}</td>
+              <td>{d.destination}</td>
+              <td>{d.ISO_to}</td>
+              <td>{d.ISO_from}</td>
             </tr>
             ))}
         </tbody>

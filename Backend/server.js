@@ -8,7 +8,7 @@ app.use(cors())
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'sqluser',
-    database: 'school',
+    database: 'ar',
     password: 'password',
     port: 3306
 })
@@ -22,8 +22,8 @@ app.get('/', (re, res)=>{
     return res.json("From backend side...")
 })
 
-app.get('/courses', (req, res)=>{
-    const sql = 'select * from courses';
+app.get('/flights', (req, res)=>{
+    const sql = 'select * from flight';
     db.query(sql, (err, data)=>{
         if(err) return res.json(err);
         return res.json(data);
